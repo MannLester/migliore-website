@@ -25,6 +25,7 @@ function testImageDescriptors(): Plugin {
 }
 
 export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/migliore-website/' : '/',
   plugins: [react(), ...(mode === 'test' ? [testImageDescriptors()] : [imagetools()])],
   publicDir: false,
   test: {
